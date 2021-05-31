@@ -14,7 +14,7 @@ class LabirintruSpider(scrapy.Spider):
             next = response.xpath("//a[@title = 'Следующая']/@href").extract_first()
         except:
             pass
-        yield response.follow(next_page, callback=self.parse)
+        yield response.follow(next, callback=self.parse)
 
         links = response.xpath("//a[@class = 'product-title-link']/@href").extract()
 
